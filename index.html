@@ -46,45 +46,52 @@
       linear-gradient(180deg, #0d0b09 0%, #1a1714 40%, #221e18 100%);
     will-change: transform;
   }
+  /* ── POLAROID FRAME ── */
   .hero-photo {
     position: absolute;
-    border: 1px solid rgba(184,151,106,0.2);
-    overflow: hidden;
     opacity: 0;
     transition: opacity 1.2s ease;
+    /* Polaroid: white card with thick bottom strip */
+    background: #f0ebe2;
+    padding: 10px 10px 42px 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.3);
   }
   .hero-photo.loaded { opacity: 1; }
   .hero-photo-1 {
     width: clamp(160px, 22vw, 260px);
-    height: clamp(200px, 28vw, 330px);
     top: 8%; left: 4%;
     transform: rotate(-3deg);
-    background: linear-gradient(135deg, #2a2218 0%, #3d3020 60%, #1e1a14 100%);
   }
   .hero-photo-2 {
     width: clamp(140px, 18vw, 220px);
-    height: clamp(175px, 23vw, 285px);
     bottom: 8%; right: 4%;
     transform: rotate(2.5deg);
-    background: linear-gradient(135deg, #1e1a14 0%, #2e2418 60%, #3a2e22 100%);
   }
   /* Hide side photos on very small screens */
   @media (max-width: 380px) {
     .hero-photo { display: none; }
   }
   .hero-photo img {
-    width: 100%; height: 100%;
+    width: 100%;
+    /* height is driven by the image's natural aspect ratio */
+    height: clamp(160px, 26vw, 300px);
     object-fit: cover;
-    opacity: 0.7;
-    filter: sepia(40%) contrast(1.1);
+    display: block;
+    filter: sepia(35%) contrast(1.08) brightness(0.95);
   }
   .photo-caption {
     position: absolute;
-    bottom: 8px; left: 10px;
+    bottom: 0; left: 0; right: 0;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 9px;
-    letter-spacing: 0.15em;
-    color: rgba(184,151,106,0.6);
+    letter-spacing: 0.18em;
+    color: #7a6e60;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
   }
   .hero-content {
     text-align: center;
@@ -523,11 +530,11 @@
 <div class="hero" id="hero">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-photo hero-photo-1 loaded">
-    <img src="https://drive.google.com/uc?export=view&id=1yIib3nfX--9DmNbXRLUZERlAJ1E-R62E" alt="Couple photo" loading="eager">
+    <img src="https://drive.google.com/uc?export=view&id=16kZGCGFQ8Xx2pGzl-geyeZtMb8NFpYzy" alt="Couple photo" loading="eager">
     <div class="photo-caption">35mm · Kodak Portra</div>
   </div>
   <div class="hero-photo hero-photo-2 loaded">
-    <img src="https://drive.google.com/uc?export=view&id=1CtO7Zr4uVi8dDekKm4MJRGi6848aKsqa" alt="Couple portrait" loading="eager">
+    <img src="https://drive.google.com/uc?export=view&id=1b3qOOkUkmn6ynJE8IH_De1cjxDrFgJN6" alt="Couple portrait" loading="eager">
     <div class="photo-caption">Portrait · 2025</div>
   </div>
   <div class="hero-content">
